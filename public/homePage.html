@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>KARBOROTECH</title>
+      <link rel="stylesheet" href="/css/style.css" />
+
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+    </head>
+    <body>
+      <div class="container">
+        <!-- Section 1 -->
+        <section class="section-1 center" id="section-1">
+          <h1 class="section-1-heading">
+          Développement 
+          </h1>
+          <h1 class="section-1-heading">
+           d'Applications
+          </h1>
+          <h1 class="section-1-heading">
+            WEB
+           </h1>
+          <h1 class="section-1-heading">
+            Android et Ios
+          </h1>
+          <img src="images/karborotech.jpg" alt="John Smith" class="person-img" />
+          
+          <a href="#section-3" class="section-1-btn">Projets</a>
+        </section>
+        <!-- End of Section 1 -->
+  
+        <!-- Navbar -->
+        <nav class="navbar center">
+          <a href="#section-1" class="navbar-link">Accueil</a>
+          <a href="#section-2" class="navbar-link">Technologies</a>
+          <a href="#section-3" class="navbar-link">Portfolio</a>
+          <a href="#section-4" class="navbar-link">Contact</a>
+        </nav>
+  
+        <!-- End of Navbar -->
+  
+        <!-- Section 2 -->
+        <section class="section-2" id="section-2">
+          <h1 class="section-heading section-2-heading">Technologies</h1>
+          <img src="images/android-ios-win.png"  class="tech-img" />
+          <div class="progress-bars-wrapper">
+            <div class="progress-bar">
+              <p class="progress-text">
+                HTML
+                <span></span>%
+              </p>
+              <div class="progress-percent"></div>
+            </div>
+            <div class="progress-bar">
+              <p class="progress-text">
+                CSS
+                <span></span>%
+              </p>
+              <div class="progress-percent"></div>
+            </div>
+            <div class="progress-bar">
+              <p class="progress-text">
+                JavaScript
+                <span></span>%
+              </p>
+              <div class="progress-percent"></div>
+            </div>
+            <div class="progress-bar">
+              <p class="progress-text">
+                ReactJS
+                <span></span>%
+              </p>
+              <div class="progress-percent"></div>
+            </div>
+            <div class="progress-bar">
+              <p class="progress-text">
+                React Native
+                <span></span>%
+              </p>
+              <div class="progress-percent"></div>
+            </div>
+            <div class="progress-bar">
+              <p class="progress-text">
+                NodeJS
+                <span></span>%
+              </p>
+              <div class="progress-percent"></div>
+            </div>
+            
+          </div>
+          <div class="services">
+            <div class="service">
+              <i class="far fa-lightbulb"></i>
+              <h2 class="service-heading">Créativité</h2>
+            </div>
+            <div class="service">
+              <i class="fas fa-cut"></i>
+              <h2 class="service-heading">Solutions à vos problèmes</h2>
+            </div>
+            <div class="service">
+              <i class="fas fa-tachometer-alt"></i>
+              <h2 class="service-heading">Rapidité</h2>
+            </div>
+            <div class="service">
+              <i class="fas fa-rocket"></i>
+              <h2 class="service-heading">Efficacité</h2>
+            </div>
+          </div>
+        </section>
+        <!-- End of Section 2 -->
+  
+        <!-- Section 3 -->
+        <section class="section-3" id="section-3">
+          <h1 class="section-heading section-3-heading">Nos projets</h1>
+          <div class="projects-wrapper center">
+            <div class="project">
+              <div class="project-text">
+                <h2 class="project-name">Application éducative</h2>
+                <h4 class="project-technologies">Réussir mon ConcoursBF</h4>
+              </div>
+              <img src="images/ReConcours.jpg" class="project-img" />
+              <a
+                href="https://play.google.com/store/apps/details?id=com.ismo24.ReConcoursBF"
+                class="project-link"
+                target="_blank"
+                >Voir sur Playstore</a
+              >
+            </div>
+            
+          </div>
+        </section>
+        <!-- End of Section 3 -->
+  
+        <!-- Section 4 -->
+        <section class="section-4" id="section-4">
+          <h1 class="section-heading section-4-heading">Contactez Nous</h1>
+          <form class="contact-form center" onsubmit="return submitForm(event);">
+              <input type="text" placeholder="Nom" />
+              <input type="email" placeholder="Mail" />
+              <textarea placeholder="Message"></textarea>
+              <input type="submit" value="ENVOYER" class="contact-form-btn" />
+          </form>
+          <p class="copyright">
+              <b>Téléphone +22665008181</b>
+          </p>
+          <p class="copyright">
+              <b>karborotech@gmail.com</b>
+          </p>
+          <p class="copyright">
+              <b>Ouagadougou BURKINA FASO</b>
+          </p>
+      </section>
+      
+      
+      <script>
+          function submitForm(event) {
+              event.preventDefault();
+              const form = event.target;
+              const formData = new FormData(form);
+      
+              // Use an AJAX request to send the form data to the server
+              fetch('contact.php', {
+                  method: 'POST',
+                  body: formData
+              })
+              .then(response => {
+                  if (response.status === 200) {
+                      // Message sent successfully
+                      alert('Message sent successfully');
+                      form.reset(); // Clear the form
+                  } else {
+                      // Message not sent
+                      alert('Message not sent');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+      
+              return false;
+          }
+      </script>
+      
+      
+        <!-- End of Section 4 -->
+  
+        <!-- Section 5 -->
+        <footer class="section-5 center">
+          <div class="social-media">
+            <!-- <a href="#none" class="social-media-link">
+              <i class="fab fa-github-square"></i>
+            </a>
+            <a href="#none" class="social-media-link">
+              <i class="fab fa-youtube"></i> -->
+            <!-- </a> -->
+            <a href="#none" class="social-media-link">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+            <!-- <a href="#none" class="social-media-link">
+              <i class="fab fa-instagram-square"></i>
+            </a> -->
+          </div>  
+         
+          <p class="copyright">
+            Copyright &copy; KARBOROTECH. All Rights Reserved
+          </p>
+        </footer>
+        <!-- End of Section 5 -->
+      </div>
+  
+      <script src="script.js"></script>
+    </body>
+  </html>

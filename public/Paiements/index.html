@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenue</title>
+<style>
+   body {
+    background-color: grey;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%; /* Utilisation de pourcentage pour la largeur */
+    max-width: 600px; /* Largeur maximale pour les écrans plus larges */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column; /* Assurez-vous que les éléments internes sont alignés verticalement */
+    align-items: center; /* Centrer horizontalement */
+}
+
+/* Les autres styles restent inchangés */
+
+
+.active {
+    display: flex;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    color: rgba(0, 170, 255, 0.44);
+}
+
+h2 {
+    color: black;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Pour inclure le padding dans la largeur */
+}
+
+input[type="submit"] {
+    background-color: gold;
+    color: blue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: yellow;
+}
+
+/* Styles pour les cercles */
+.circle, .circle_failure {
+    width: 20vw; /* Utilisation de viewport units */
+    height: 20vw; /* Utilisation de viewport units */
+    border-radius: 50%; /* Pour créer une forme ronde */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    background-color: green;
+}
+
+.circle_failure {
+    background-color: red;
+}
+
+.checkmark, .cross {
+    font-size: 8vw; /* Utilisation de viewport units */
+    color: white;
+}
+
+</style>
+<script src=https://touchpay.gutouch.com/touchpay/script/prod_touchpay-0.0.1.js  type="text/javascript"></script>
+<script type="text/javascript">
+
+    
+
+
+  
+    
+
+    window.onload =async function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const PayId = urlParams.get('PayId');
+        const ValueAbo = urlParams.get('PayAmount');
+        const Status = urlParams.get('Status');
+
+        
+        const PaiementContainer=document.getElementById("paiement")
+        const SuccessContainer=document.getElementById("success")
+        const FailureContainer=document.getElementById("failure")
+
+        const BACKEND_URL='https://ibangre-default-rtdb.firebaseio.com/'
+
+    async function updateAllAbonnementsIDs(newId) {
+    try {
+        let response = await fetch(`${BACKEND_URL}/AllAbonnementsIDs/AllIds.json`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+        let data = await response.json();
+        
+        let newArr = data
+        newArr.push(newId);
+        
+        let putResponse = await fetch(`${BACKEND_URL}/AllAbonnementsIDs.json`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ AllIds: newArr })
+        });
+
+        if (!putResponse.ok) {
+            throw new Error('Failed to update data');
+        }
+       
+        return putResponse.status;
+    } catch (error) {
+        console.error('Error updating AllAbonnementsIDs:', error);
+        return null; // Return null or handle the error accordingly
+    }
+}
+        switch (Status) {
+            case "Success":
+                if(PayId){
+                    const sendAbo=await updateAllAbonnementsIDs(PayId)
+                    SuccessContainer.classList.toggle('active')
+                    if (sendAbo==="200"){ }
+                }
+                
+           
+            break;
+            case "Failed":
+            FailureContainer.classList.toggle('active')
+            break;
+            // More cases can be added as needed
+            default:
+            PaiementContainer.classList.toggle('active')
+}
+
+
+    };
+
+    
+            function calltouchpay(){
+                const urlParams = new URLSearchParams(window.location.search);
+                const PayId = urlParams.get('PayId');
+                const ValueAbo = urlParams.get('PayAmount');
+                const Status = urlParams.get('Status');
+                // console.log("ValueAbo",ValueAbo)
+
+                const SUCCESS_URL = `https://karborotech.net/Paiements?PayId=${PayId}&Status=Success`
+                const FAILED_URL = `https://karborotech.net/Paiements?PayId=${PayId}&Status=Failed`
+
+                sendPaymentInfos(new Date().getTime(),
+                                 'KARBO2991','UmKiMI8KKpn97EInXXOic17fNwpZj5KjHdGuC0PzUHENMaF8D8',
+                                 'karborotech.net',  'karborotech.net',
+                                 'karborotech.net', `${ValueAbo}`,
+                                 'Ouagadougou', 'email','tes2', 'test2',  'Telephone');
+            }
+</script>
+
+</head>
+<body>
+<div class="container" id="paiement">
+    <h1>Bienvenue sur notre page</h1>
+    <h2>Vous êtes sur le point de transmettre un paiement à la société KARBOROTECH propriétaire de l'application "Réussir mon ConcoursBF" pour activer votre abonnement sur la dite application </h2>
+    <p>Merci de remplir le formulaire ci-dessous :</p>
+    <form action="#" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+        <label for="nom">Prénom(s) :</label>
+        <input type="text" id="nom" name="nom" required>
+        <input type="submit" onclick='calltouchpay()' value="Continuer">
+    </form>
+</div>
+<div class="container" id="success">
+    <h1>Paiement transmis avec succès</h1>
+    <div class="circle">
+        <span class="checkmark">✔</span>
+      </div>
+    <h2>Ouvrez de nouveau l'application "Réussir mon ConcoursBF" pour activer l'abonnement et profiter de la meilleure expérience d'apprentissage</h2>
+</div>
+<div class="container"  id="failure">
+    <h1>Echec du paiement</h1>
+    <div class="circle_failure">
+        <span class="cross">✖</span>
+    </div>
+    <h2>Veuillez rééssayer la procédure de paiement</h2>
+</div>
+</div>
+</body>
+</html>
