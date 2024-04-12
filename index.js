@@ -42,33 +42,41 @@ app.use(express.static('public'));
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
 
+   
+    try {
+        
+          const response = await axios.put(url,data,{
+            headers: {
+              'Authorization': authorizationToken,
+              'Content-Type': 'application/json',
+              'User-Agent': 'insomnia/2023.5.8'
+            }
+          });
+          // console.log("response",response)
+          const myData={
+            "message 1":req.query,
+            "message 2":"request is successfull",
+            "message 3":response.data,
+            
+          }
+      
+          res.json(myData)
+      
+        
+    } catch (error) {
+        // Handle errors, such as if the external API is down
+    // console.log("error",error)
+    // res.status(500).send('An error occurred while fetching data.',error,'queryInfos:',req.query);
     const myData={
       "message 1":req.query,
-      "message 2":url,
-      "message 3":authorizationToken,
-      "message 4":data,
+      "message 2":"request failed",
+      "message 3":error,
+      
     }
 
     res.json(myData)
-    // try {
         
-    //       const response = await axios.put(url,data,{
-    //         headers: {
-    //           'Authorization': authorizationToken,
-    //           'Content-Type': 'application/json',
-    //           'User-Agent': 'insomnia/2023.5.8'
-    //         }
-    //       });
-    //       console.log("response",response)
-    //       res.json(response.data);
-      
-        
-    // } catch (error) {
-    //     // Handle errors, such as if the external API is down
-    // console.log("error",error)
-    // res.status(500).send('An error occurred while fetching data.',error,'queryInfos:',req.query);
-        
-    // }
+    }
     
   });
 
