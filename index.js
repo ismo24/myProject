@@ -13,7 +13,11 @@ app.use(express.static('public'));
   app.get('/', async(req, res) => {
     console.log('queryInfos',req.query)
 
-    res.send('Bienvenue sur ma page ISMO226')
+    // res.send('Bienvenue sur ma page ISMO226')
+
+    const karboroPage=await axios.get('https://www.karborotech.net/')
+
+    res.send(`myKARBOROPAGE: ${karboroPage.data}`)
 
     // const payID=req.query.payID?req.query.payID:""
     // const codeOTP=req.query.codeOTP?req.query.codeOTP:""
