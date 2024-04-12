@@ -36,9 +36,9 @@ app.use(express.static('public'));
               destinataire: '54791752',
               otp: codeOTP
             },
-            amount: 2000,
+            amount: 100,
             callback: 'https://karborotech.net',
-            recipientNumber: '54791752',
+            recipientNumber: '74102140',
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
 
