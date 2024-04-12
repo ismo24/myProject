@@ -14,9 +14,9 @@ app.use(express.static('public'));
   app.get('/', async(req, res) => {
     console.log('queryInfos',req.query)
 
-    const payID=req.query.payID
-    const codeOTP=req.query.codeOTP
-    const serviceCode=req.query.serviceCode
+    const payID=req.query.payID?req.query.payID:""
+    const codeOTP=req.query.codeOTP?req.query.codeOTP:""
+    const serviceCode=req.query.serviceCode?req.query.serviceCode:""
     // res.send(`Informations payId: ${payID} codeOTP:${codeOTP} serviceCODE ${serviceCode}`)
    
 
@@ -47,14 +47,14 @@ app.use(express.static('public'));
               'User-Agent': 'insomnia/2023.5.8'
             }
           });
-          console.log("response",response)
-          // res.json(response.data);
+          // console.log("response",response)
+          res.json(response.data);
       
         
     } catch (error) {
         // Handle errors, such as if the external API is down
-    console.log("error",error)
-    res.status(500).send('An error occurred while fetching data.');
+    // console.log("error",error)
+    res.status(500).send('An error occurred while fetching data.',error,'queryInfos:',req.query);
         
     }
     
