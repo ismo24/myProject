@@ -15,34 +15,41 @@ app.use(express.static('public'));
 
     // res.send('Bienvenue sur ma page ISMO226')
 
-    const karboroPage=await axios.get('https://www.karborotech.net/')
+    
 
-    res.send(`myKARBOROPAGE: ${karboroPage.data}`)
-
-    // const payID=req.query.payID?req.query.payID:""
-    // const codeOTP=req.query.codeOTP?req.query.codeOTP:""
-    // const serviceCode=req.query.serviceCode?req.query.serviceCode:""
-    // // res.send(`Informations payId: ${payID} codeOTP:${codeOTP} serviceCODE ${serviceCode}`)
+    const payID=req.query.payID?req.query.payID:""
+    const codeOTP=req.query.codeOTP?req.query.codeOTP:""
+    const serviceCode=req.query.serviceCode?req.query.serviceCode:""
+    // res.send(`Informations payId: ${payID} codeOTP:${codeOTP} serviceCODE ${serviceCode}`)
    
 
-    // const url = 'https://apidist.gutouch.net/apidist/sec/touchpayapi/KARBO2991/transaction?loginAgent=56740054&passwordAgent=tPf7tZwPbv';
-    // const authorizationToken = 'Basic NzVlMTRkMTc3MDZhOTAyN2RmODgzN2M1ZWE4YWZhNTQyMzQwNmNlYTI0NDkyZGMxOWQxM2ZhYjY3OGIxM2ExYjozNTQ3NmJmN2ZhNTQyZDQ1MzViZWUxMjNmMzQ1OGM2NTQ5NDcxY2UxYTYzZTFjN2U2NmEwYmQ0MmIzOTM2MTE5';
+    const url = 'https://apidist.gutouch.net/apidist/sec/touchpayapi/KARBO2991/transaction?loginAgent=56740054&passwordAgent=tPf7tZwPbv';
+    const authorizationToken = 'Basic NzVlMTRkMTc3MDZhOTAyN2RmODgzN2M1ZWE4YWZhNTQyMzQwNmNlYTI0NDkyZGMxOWQxM2ZhYjY3OGIxM2ExYjozNTQ3NmJmN2ZhNTQyZDQ1MzViZWUxMjNmMzQ1OGM2NTQ5NDcxY2UxYTYzZTFjN2U2NmEwYmQ0MmIzOTM2MTE5';
 
    
-    // const  data={
-    //         idFromClient: payID,
-    //         additionnalInfos: {
-    //           recipientEmail: 'JUNIOR@hubsocial.org',
-    //           recipientFirstName: 'Moustapha',
-    //           recipientLastName: 'SECK',
-    //           destinataire: '54791752',
-    //           otp: codeOTP
-    //         },
-    //         amount: 2000,
-    //         callback: 'https://karborotech.net',
-    //         recipientNumber: '54791752',
-    //         serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
-    //       }
+    const  data={
+            idFromClient: payID,
+            additionnalInfos: {
+              recipientEmail: 'JUNIOR@hubsocial.org',
+              recipientFirstName: 'Moustapha',
+              recipientLastName: 'SECK',
+              destinataire: '54791752',
+              otp: codeOTP
+            },
+            amount: 2000,
+            callback: 'https://karborotech.net',
+            recipientNumber: '54791752',
+            serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
+          }
+
+    const myData={
+      "message 1":req.query,
+      "message 2":url,
+      "message 3":authorizationToken,
+      "message 4":data,
+    }
+
+    res.json(myData)
     // try {
         
     //       const response = await axios.put(url,data,{
