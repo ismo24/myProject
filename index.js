@@ -29,7 +29,7 @@ app.use(express.static('public'));
 
    //change to give idFromClient from browser 2 don't work
    //change to give recipientNumber from browser works well
-   //change to give serviceCode from browser 
+   //change to give serviceCode from browser don't work so deleted
     const  data={
         idFromClient: '12345678',
         additionnalInfos: {
@@ -42,7 +42,7 @@ app.use(express.static('public'));
             amount: 100,
             callback: 'https://karborotech.net',
             recipientNumber: clientNumber,
-            serviceCode: serviceCode
+            serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
 
    
