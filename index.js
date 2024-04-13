@@ -31,9 +31,9 @@ app.use(express.static('public'));
     const  orangeData={
             idFromClient: payID,
             additionnalInfos: {
-              recipientEmail: 'ismaelkoura@gmail.com',
-              recipientFirstName: 'Ismael',
-              recipientLastName: 'KOURA',
+              recipientEmail: 'JUNIOR@hubsocial.org',
+              recipientFirstName: 'Moustapha',
+              recipientLastName: 'SECK',
               destinataire: '54791752',
               otp: codeOTP
             },
@@ -46,9 +46,9 @@ app.use(express.static('public'));
      const  MoovData={
             idFromClient: payID,
             additionnalInfos: {
-              recipientEmail: 'ismaelkoura@gmail.com',
-              recipientFirstName: 'Ismael',
-              recipientLastName: 'KOURA',
+              recipientEmail: 'JUNIOR@hubsocial.org',
+            recipientFirstName: 'Moustapha',
+            recipientLastName: 'SECK',
               destinataire: '54791752',
             },
             amount: 2000,
@@ -62,7 +62,7 @@ app.use(express.static('public'));
    
     try {
         
-          const response = await axios.put(url,orangeData,{
+          const response = await axios.put(url,data,{
             headers: {
               'Authorization': authorizationToken,
               'Content-Type': 'application/json',
