@@ -77,7 +77,7 @@ app.use(express.static('public'));
     } catch (error) {
    
 
-    res.json(req.query,error)
+    res.json(error)
         
     }
     
