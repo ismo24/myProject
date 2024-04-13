@@ -28,12 +28,12 @@ app.use(express.static('public'));
     const authorizationToken = 'Basic NzVlMTRkMTc3MDZhOTAyN2RmODgzN2M1ZWE4YWZhNTQyMzQwNmNlYTI0NDkyZGMxOWQxM2ZhYjY3OGIxM2ExYjozNTQ3NmJmN2ZhNTQyZDQ1MzViZWUxMjNmMzQ1OGM2NTQ5NDcxY2UxYTYzZTFjN2U2NmEwYmQ0MmIzOTM2MTE5';
 
    
-    const  data={
+    const  orangeData={
             idFromClient: payID,
             additionnalInfos: {
-              recipientEmail: 'JUNIOR@hubsocial.org',
-              recipientFirstName: 'Moustapha',
-              recipientLastName: 'SECK',
+              recipientEmail: 'ismaelkoura@gmail.com',
+              recipientFirstName: 'Ismael',
+              recipientLastName: 'KOURA',
               destinataire: '54791752',
               otp: codeOTP
             },
@@ -43,6 +43,22 @@ app.use(express.static('public'));
             serviceCode: serviceCode
           }
 
+     const  MoovData={
+            idFromClient: payID,
+            additionnalInfos: {
+              recipientEmail: 'ismaelkoura@gmail.com',
+              recipientFirstName: 'Ismael',
+              recipientLastName: 'KOURA',
+              destinataire: '54791752',
+            },
+            amount: 2000,
+            callback: 'https://karborotech.net',
+            recipientNumber: clientNumber,
+            serviceCode: serviceCode
+          }
+   
+
+          const data=serviceCode=='BF_PAIEMENTMARCHAND_MOBICASH_TP'?MoovData:orangeData
    
     try {
         
@@ -61,7 +77,7 @@ app.use(express.static('public'));
     } catch (error) {
    
 
-    res.json(error)
+    res.json(req.query,error)
         
     }
     
