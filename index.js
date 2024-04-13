@@ -27,9 +27,9 @@ app.use(express.static('public'));
     const url = 'https://apidist.gutouch.net/apidist/sec/touchpayapi/KARBO2991/transaction?loginAgent=56740054&passwordAgent=tPf7tZwPbv';
     const authorizationToken = 'Basic NzVlMTRkMTc3MDZhOTAyN2RmODgzN2M1ZWE4YWZhNTQyMzQwNmNlYTI0NDkyZGMxOWQxM2ZhYjY3OGIxM2ExYjozNTQ3NmJmN2ZhNTQyZDQ1MzViZWUxMjNmMzQ1OGM2NTQ5NDcxY2UxYTYzZTFjN2U2NmEwYmQ0MmIzOTM2MTE5';
 
-   //change to give idFromClient from browser 1
+   //change to give idFromClient from browser 2
     const  data={
-        idFromClient: `${payID}`,
+        idFromClient: '12345678',
         additionnalInfos: {
         recipientEmail: 'JUNIOR@hubsocial.org',
         recipientFirstName: 'Moustapha',
