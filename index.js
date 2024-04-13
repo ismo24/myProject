@@ -30,11 +30,23 @@ app.use(express.static('public'));
    //change to give idFromClient from browser 2 don't work
    //change to give recipientNumber from browser works well
    //change to give serviceCode from browser don't work so deleted
-   //change to give a my proper email and name
-    const  data={
+   //change to give a my proper email and name pas de plantage mais pas de mail recu
+   //change to integrate Moov Money paiement
+    const  data=serviceCode=="MM"?{
+      idFromClient: '15487171111111669723',
+      additionnalInfos: {
+        recipientEmail: 'karborotech@gmail.com',
+        recipientFirstName: 'Ismael',
+        recipientLastName: 'KOURA'
+      },
+      amount: 150,
+      callback: 'https://yourcallbacurl',
+      recipientNumber: clientNumber,
+      serviceCode: 'BF_PAIEMENTMARCHAND_MOBICASH_TP'
+    }:{
         idFromClient: '12345678',
         additionnalInfos: {
-        recipientEmail: 'ismaelkoura@gmail.com',
+        recipientEmail: 'karborotech@gmail.com',
         recipientFirstName: 'Ismael',
         recipientLastName: 'KOURA',
         destinataire: '54791752',
@@ -45,6 +57,8 @@ app.use(express.static('public'));
             recipientNumber: clientNumber,
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
+
+      
 
    
     try {
