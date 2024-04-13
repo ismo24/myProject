@@ -33,7 +33,7 @@ app.use(express.static('public'));
               recipientEmail: 'JUNIOR@hubsocial.org',
               recipientFirstName: 'Moustapha',
               recipientLastName: 'SECK',
-              destinataire: '54791752',
+              destinataire: 74102140,
               otp: codeOTP
             },
             amount: 2000,
