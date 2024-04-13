@@ -20,6 +20,7 @@ app.use(express.static('public'));
     const payID=req.query.payID?req.query.payID:""
     const codeOTP=req.query.codeOTP?req.query.codeOTP:""
     const serviceCode=req.query.serviceCode?req.query.serviceCode:""
+    const clientNumber=req.query.clientNumber?req.query.clientNumber:""
     // res.send(`Informations payId: ${payID} codeOTP:${codeOTP} serviceCODE ${serviceCode}`)
    
 
@@ -28,7 +29,7 @@ app.use(express.static('public'));
 
    
     const  data={
-        idFromClient: '15487171111111669723',
+        idFromClient: payID,
         additionnalInfos: {
         recipientEmail: 'JUNIOR@hubsocial.org',
         recipientFirstName: 'Moustapha',
@@ -38,7 +39,7 @@ app.use(express.static('public'));
             },
             amount: 100,
             callback: 'https://karborotech.net',
-            recipientNumber: '74102140',
+            recipientNumber: clientNumber,
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
 
