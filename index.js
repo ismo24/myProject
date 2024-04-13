@@ -33,12 +33,12 @@ app.use(express.static('public'));
               recipientEmail: 'JUNIOR@hubsocial.org',
               recipientFirstName: 'Moustapha',
               recipientLastName: 'SECK',
-              destinataire: 74102140,
+              destinataire: '54791752',
               otp: codeOTP
             },
             amount: 2000,
             callback: 'https://karborotech.net',
-            recipientNumber: '54791752',
+            recipientNumber: '74102140',
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
 
