@@ -27,8 +27,9 @@ app.use(express.static('public'));
     const url = 'https://apidist.gutouch.net/apidist/sec/touchpayapi/KARBO2991/transaction?loginAgent=56740054&passwordAgent=tPf7tZwPbv';
     const authorizationToken = 'Basic NzVlMTRkMTc3MDZhOTAyN2RmODgzN2M1ZWE4YWZhNTQyMzQwNmNlYTI0NDkyZGMxOWQxM2ZhYjY3OGIxM2ExYjozNTQ3NmJmN2ZhNTQyZDQ1MzViZWUxMjNmMzQ1OGM2NTQ5NDcxY2UxYTYzZTFjN2U2NmEwYmQ0MmIzOTM2MTE5';
 
-   //change to give idFromClient from browser 2
-   //change to give recipientNumber from browser
+   //change to give idFromClient from browser 2 don't work
+   //change to give recipientNumber from browser works well
+   //change to give serviceCode from browser 
     const  data={
         idFromClient: '12345678',
         additionnalInfos: {
@@ -41,7 +42,7 @@ app.use(express.static('public'));
             amount: 100,
             callback: 'https://karborotech.net',
             recipientNumber: clientNumber,
-            serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
+            serviceCode: serviceCode
           }
 
    
