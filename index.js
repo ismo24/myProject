@@ -39,7 +39,7 @@ app.use(express.static('public'));
         recipientFirstName: 'Ismael',
         recipientLastName: 'KOURA'
       },
-      amount: 150,
+      amount: 2000,
       callback: 'https://yourcallbacurl',
       recipientNumber: clientNumber,
       serviceCode: 'BF_PAIEMENTMARCHAND_MOBICASH_TP'
@@ -52,7 +52,7 @@ app.use(express.static('public'));
         destinataire: '54791752',
         otp: codeOTP
             },
-            amount: 100,
+            amount: 2000,
             callback: 'https://karborotech.net',
             recipientNumber: clientNumber,
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
@@ -70,29 +70,14 @@ app.use(express.static('public'));
               'User-Agent': 'insomnia/2023.5.8'
             }
           });
-          // console.log("response",response)
-          const myData={
-            "message 1":req.query,
-            "message 2":"request is successfull",
-            "message 3":response.data,
-            
-          }
+          
       
-          res.json(myData)
+          res.json(response.data)
       
         
     } catch (error) {
-        // Handle errors, such as if the external API is down
-    // console.log("error",error)
-    // res.status(500).send('An error occurred while fetching data.',error,'queryInfos:',req.query);
-    const myData={
-      "message 1":req.query,
-      "message 2":"request failed",
-      "message 3":error,
-      
-    }
-
-    res.json(myData)
+        
+    res.json(error)
         
     }
     
