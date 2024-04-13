@@ -30,12 +30,13 @@ app.use(express.static('public'));
    //change to give idFromClient from browser 2 don't work
    //change to give recipientNumber from browser works well
    //change to give serviceCode from browser don't work so deleted
+   //change to give a my proper email and name
     const  data={
         idFromClient: '12345678',
         additionnalInfos: {
-        recipientEmail: 'JUNIOR@hubsocial.org',
-        recipientFirstName: 'Moustapha',
-        recipientLastName: 'SECK',
+        recipientEmail: 'ismaelkoura@gmail.com',
+        recipientFirstName: 'Ismael',
+        recipientLastName: 'KOURA',
         destinataire: '54791752',
         otp: codeOTP
             },
