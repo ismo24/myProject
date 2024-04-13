@@ -28,13 +28,13 @@ app.use(express.static('public'));
 
    
     const  data={
-            idFromClient: payID,
-            additionnalInfos: {
-              recipientEmail: 'JUNIOR@hubsocial.org',
-              recipientFirstName: 'Moustapha',
-              recipientLastName: 'SECK',
-              destinataire: '54791752',
-              otp: codeOTP
+        idFromClient: '15487171111111669723',
+        additionnalInfos: {
+        recipientEmail: 'JUNIOR@hubsocial.org',
+        recipientFirstName: 'Moustapha',
+        recipientLastName: 'SECK',
+        destinataire: '54791752',
+        otp: codeOTP
             },
             amount: 100,
             callback: 'https://karborotech.net',
