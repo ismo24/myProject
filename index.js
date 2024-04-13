@@ -20,7 +20,7 @@ app.use(express.static('public'));
     const payID=req.query.payID?req.query.payID:""
     const codeOTP=req.query.codeOTP?req.query.codeOTP:""
     const serviceCode=req.query.serviceCode?req.query.serviceCode:""
-    // const clientNumber=req.query.clientNumber?req.query.clientNumber:""
+    const clientNumber=req.query.clientNumber?req.query.clientNumber:""
     // res.send(`Informations payId: ${payID} codeOTP:${codeOTP} serviceCODE ${serviceCode}`)
    
 
@@ -28,6 +28,7 @@ app.use(express.static('public'));
     const authorizationToken = 'Basic NzVlMTRkMTc3MDZhOTAyN2RmODgzN2M1ZWE4YWZhNTQyMzQwNmNlYTI0NDkyZGMxOWQxM2ZhYjY3OGIxM2ExYjozNTQ3NmJmN2ZhNTQyZDQ1MzViZWUxMjNmMzQ1OGM2NTQ5NDcxY2UxYTYzZTFjN2U2NmEwYmQ0MmIzOTM2MTE5';
 
    //change to give idFromClient from browser 2
+   //change to give recipientNumber from browser
     const  data={
         idFromClient: '12345678',
         additionnalInfos: {
@@ -39,7 +40,7 @@ app.use(express.static('public'));
             },
             amount: 100,
             callback: 'https://karborotech.net',
-            recipientNumber: '74102140',
+            recipientNumber: clientNumber,
             serviceCode: 'BF_PAIEMENTMARCHAND_OM_TP'
           }
 
